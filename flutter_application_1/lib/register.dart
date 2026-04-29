@@ -23,7 +23,7 @@ class Registeruser extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(decoration: InputDecoration(
-              labelText: "Email Address",
+              labelText: "Username",
               border: OutlineInputBorder()
             ),),
           ),
@@ -39,7 +39,10 @@ class Registeruser extends StatelessWidget {
           ),
 
           ElevatedButton(onPressed: () => print("Register Button Clicked"), 
-          child: Text("Register"),
+          child: Text("Register",
+          style: TextStyle(fontWeight: FontWeight.bold,
+          fontSize: 16),
+          ),
           style: ElevatedButton.styleFrom(
             fixedSize: const Size(400, 40),
             foregroundColor: Colors.white,
@@ -47,6 +50,16 @@ class Registeruser extends StatelessWidget {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
 
           ) ,
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Already have a account."),
+              SizedBox(width: 5,),
+              Text("Sigin",
+              style:TextStyle(color: Colors.blueAccent)),
+            ],
           )
         ],
       ),
