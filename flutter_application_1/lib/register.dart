@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/login.dart';
 
 class Registeruser extends StatelessWidget {
   const Registeruser({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final TextEditingController usernameController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    
+
     return Scaffold(
       body: Column(
         children: [
@@ -20,9 +27,12 @@ class Registeruser extends StatelessWidget {
             
           ),
           Text("Create new account to get started"),
+
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(decoration: InputDecoration(
+            child: TextField(
+              controller: usernameController,
+              decoration: InputDecoration(
               labelText: "Username",
               border: OutlineInputBorder()
             ),),
@@ -30,15 +40,24 @@ class Registeruser extends StatelessWidget {
 
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
+            child: TextField
+            (
+              controller: passwordController,
+              obscureText: true,
               decoration: InputDecoration(
+                
                 labelText: "Password",
                 border: OutlineInputBorder()
               ),
             ),
           ),
 
-          ElevatedButton(onPressed: () => print("Register Button Clicked"), 
+          ElevatedButton(onPressed: () => Navigator.push(context, 
+          MaterialPageRoute(builder: (context) => Login(
+            // username: usernameController.text,
+            // password: passwordController.text,
+          ))), 
+
           child: Text("Register",
           style: TextStyle(fontWeight: FontWeight.bold,
           fontSize: 16),
@@ -55,12 +74,21 @@ class Registeruser extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              
               Text("Already have a account."),
               SizedBox(width: 5,),
-              Text("Sigin",
-              style:TextStyle(color: Colors.blueAccent)),
+              GestureDetector(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                  // username: usernameController.text,
+                  // password: passwordController.text,
+                ))),
+                child: Text("Login",
+                style:TextStyle(color: Colors.blueAccent)),
+              ),
             ],
-          )
+          ),
+
+
         ],
       ),
     );
