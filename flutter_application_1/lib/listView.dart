@@ -23,6 +23,8 @@ class Listview extends StatelessWidget {
                 child: Text(students[index]["name"][0]),
               ),
               title: Text(students[index]["name"]),
+              subtitle: Text(students[index]["age"].toString()),
+              trailing: Text(students[index]["grade"]),
             ),
           );
         }
