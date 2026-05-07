@@ -12,8 +12,9 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 30,),
-          ElevatedButton(onPressed: () =>Navigator.push(context, 
-          MaterialPageRoute(builder: (context) => Login())), child: Text("To login page")),
+          ElevatedButton(onPressed: () {
+            AlertDialog(title: Text("Are you sure about logout?"));
+          }, child: Text("To login page")),
           Text("username = $username"),
           Text("password = $password")
         ],

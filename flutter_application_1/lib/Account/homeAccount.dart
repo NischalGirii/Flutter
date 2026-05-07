@@ -1,12 +1,30 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/localVariable/localstorage.dart';
+import 'package:flutter_application_1/localVariable/login.dart';
 
 class Homeaccount extends StatelessWidget {
   const Homeaccount({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void handleLogout(BuildContext context){
+      showDialog(context: context, builder: (context){
+        return AlertDialog(
+            title: Text("Logout"),
+            content: Text("Are you sure you want to logout"),
+            actions: [
+              TextButton(onPressed: () {}, child: Text("Cancel")),
+              TextButton(onPressed: () {}, child: Text("Yes")),
+            ],
+        );
+      },
+      );
+    }
+
+
+
     return Scaffold(
       body: Column(
         children: [
@@ -347,9 +365,15 @@ class Homeaccount extends StatelessWidget {
 
               ],
             ),
-          )
+          ),
 
+          // ElevatedButton(onPressed: () {
+          //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Localstoragelogin()));
+          // }, child: Text("Logout"))
 
+         ElevatedButton(onPressed:() {
+          handleLogout(context);},
+           child: Text("Logout"))
 
         
 

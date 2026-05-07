@@ -8,7 +8,9 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),
+        centerTitle: true,
       ),
+
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -68,14 +70,14 @@ class ProfilePage extends StatelessWidget {
         ],
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Transactions"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: 2,
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      //     BottomNavigationBarItem(icon: Icon(Icons.list), label: "Transactions"),
+      //     BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+      //   ],
+      // ),
     );
   }
 }
