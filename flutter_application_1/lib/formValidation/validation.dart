@@ -56,6 +56,19 @@ class _ValidationState extends State<Validation> {
                 if(value.length <= 8) {
                   return "Password must be atleast eight characters";
                 }
+                if(!value.contains(".*[a-z].*")) {
+                  return "Password must contain atleast one lower case character.";
+                }
+                if(!value.contains(".*[A-Z].*")) {
+                  return "Password must contain atleast one upper case character.";
+                }
+                if(!value.contains(".*[0-9].")) {
+                  return "Password must contain atleast one number.";
+                }
+                if(!value.contains(".*[!@#%^&*()].*")) {
+                  return "Password must contain atleast one special characters.";
+                }
+
                 return null;
               },
         
@@ -89,7 +102,7 @@ class _ValidationState extends State<Validation> {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.blueAccent
                ),),
-            )
+            ),
           ],
         ),
       ),
