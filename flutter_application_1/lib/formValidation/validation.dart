@@ -53,19 +53,19 @@ class _ValidationState extends State<Validation> {
                 if(value == null || value.isEmpty) {
                   return "please enter password";
                 }
-                if(value.length <= 8) {
+                if(value.length < 8) {
                   return "Password must be atleast eight characters";
                 }
-                if(!value.contains(".*[a-z].*")) {
+                if(!RegExp(r'[a-z]').hasMatch(value)) {
                   return "Password must contain atleast one lower case character.";
                 }
-                if(!value.contains(".*[A-Z].*")) {
+                if(!RegExp(r"[A-Z]").hasMatch(value)) {
                   return "Password must contain atleast one upper case character.";
                 }
-                if(!value.contains(".*[0-9].")) {
+                if(!RegExp(r"[0-9]").hasMatch(value)) {
                   return "Password must contain atleast one number.";
                 }
-                if(!value.contains(".*[!@#%^&*()].*")) {
+                if(!RegExp(r"[!@#%^&*()]").hasMatch(value)) {
                   return "Password must contain atleast one special characters.";
                 }
 
@@ -96,7 +96,11 @@ class _ValidationState extends State<Validation> {
 
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(onPressed: () {},
+              child: ElevatedButton(onPressed: () {
+                if(_formKey.currentState!.validate()){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Form Submitted successfully.")));
+                }
+              },
                child: Text("Submit"),
                style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
