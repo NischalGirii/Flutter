@@ -48,7 +48,16 @@ class Localstoragelogin extends StatelessWidget {
             ),
           ),
           ElevatedButton(onPressed: () {onLogin(context);}, 
-          child: Text("Login"))
+          child: Text("Login")),
+
+          
+        
+          ElevatedButton(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Localstorage()));
+            }, child: Text("Register")),
+          
+          
+          
         ],
       ),
     

@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/localVariable/localstorage.dart';
 import 'package:flutter_application_1/localVariable/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Homeaccount extends StatelessWidget {
   const Homeaccount({super.key});
@@ -15,8 +16,19 @@ class Homeaccount extends StatelessWidget {
             title: Text("Logout"),
             content: Text("Are you sure you want to logout"),
             actions: [
-              TextButton(onPressed: () {}, child: Text("Cancel")),
-              TextButton(onPressed: () {}, child: Text("Yes")),
+              TextButton(onPressed: () {
+                
+                 Navigator.pop(context);
+              }, child: Text("Cancel")),
+              TextButton(onPressed: () async{
+
+                SharedPreferences pref = await SharedPreferences.getInstance();
+                await pref.remove('username');
+                await pref.remove('password');
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Localstoragelogin()));
+                 
+
+              }, child: Text("Yes")),
             ],
         );
       },
