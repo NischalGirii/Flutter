@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Profile%20and%20View%20Page/Settings.dart';
+import 'package:flutter_application_1/Profile%20and%20View%20Page/profile.dart';
+import 'package:flutter_application_1/Profile%20and%20View%20Page/truecaller.dart';
 import 'package:flutter_application_1/card.dart';
 import 'package:flutter_application_1/cardsir.dart';
 import 'package:flutter_application_1/Account/createAccount.dart';
+import 'package:flutter_application_1/dateTime/datetime.dart';
 import 'package:flutter_application_1/design.dart';
 import 'package:flutter_application_1/designR.dart';
 import 'package:flutter_application_1/Account/homeAccount.dart';
@@ -17,6 +21,7 @@ import 'package:flutter_application_1/project.dart';
 import 'package:flutter_application_1/register.dart';
 import 'package:flutter_application_1/second.dart';
 import 'package:flutter_application_1/stack.dart';
+
 
 void main() {
   runApp(const First());
@@ -35,7 +40,7 @@ class First extends StatelessWidget {
 
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  Validation(),
+      home:  Truecaller(),
     );
   }
 }

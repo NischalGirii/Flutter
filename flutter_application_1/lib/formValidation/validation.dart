@@ -75,6 +75,7 @@ class _ValidationState extends State<Validation> {
               
             ),
             TextFormField(
+              keyboardType: TextInputType.phone,
               controller: phoneController,
               decoration: InputDecoration(
                 labelText: "Phone Number"
@@ -98,7 +99,9 @@ class _ValidationState extends State<Validation> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(onPressed: () {
                 if(_formKey.currentState!.validate()){
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Form Submitted successfully.")));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar
+                  (content: Text("Form Submitted successfully.",style: TextStyle(color: Colors.black),), 
+                  backgroundColor: Colors.greenAccent[200],));
                 }
               },
                child: Text("Submit"),
