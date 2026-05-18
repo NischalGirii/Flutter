@@ -8,6 +8,23 @@ class Truecaller extends StatefulWidget {
 }
 
 class _TruecallerState extends State<Truecaller> {
+  // String selectedData ="No date selected";
+  // String selectedtime ="No time selected";
+
+  // Future<void> pickDate() async{
+  //   DateTime? pickedDate = await showDatePicker(
+  //     context: context, 
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(1990),
+  //      lastDate: DateTime(3000));
+
+  //      if (pickedDate != null){
+  //       setState(() {
+  //         selectedData =
+  //         "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+  //                 });
+  //      }
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,119 +46,127 @@ class _TruecallerState extends State<Truecaller> {
         ),
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          
-          children: [
-            Text("Welcome,"),
-            Text("Alex",
-            style: TextStyle(
-              fontWeight:FontWeight.bold,
-              fontSize: 30,
-            ),),
-            SearchBar(
-              leading: Icon(Icons.search) ,
-              hintText: 'Search a number',
-              onChanged: (value) {
-                
-              },
-            ),
-            SizedBox(height: 20,),
-            Text("Recents",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),),
-
-            recentsWidget(Icons.remove_circle_outline_outlined, "Scammer"),
-
-            SizedBox(height: 20,),
-            //  Text("Discover",
-            // style: TextStyle(
-            //   fontSize: 16,
-            //   fontWeight: FontWeight.bold,
-            // ),),
-            // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            // discoverWidget(Icons.person_add_alt, "Who viewed my profile"),
-            // discoverWidget(Icons.sms, 'SMS FIltering'),
-            // discoverWidget(Icons.wallet, 'Announcements'),
-          
-            // ],),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //   children: [
-              
-            //   discoverWidget(Icons.group, "Community"),
-              
-            // discoverWidget(Icons.report_gmailerrorred_rounded, "How to report calls")
-            // ],)
-
-
-            Text(
-              "Discover",
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            
+            children: [
+              Text("Welcome,"), 
+              Text("Alex",
+              style: TextStyle(
+                fontWeight:FontWeight.bold,
+                fontSize: 30,
+              ),),
+              SearchBar(
+                leading: Icon(Icons.search) ,
+                hintText: 'Search a number',
+                onChanged: (value) {
+                  
+                },
+              ),
+              SizedBox(height: 20,),
+              Text("Recents",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
-
-            // Row 1: Three Items
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start, // Align to left side
-              children: [
-                discoverWidget(Icons.person_add_alt, "Who viewed my profile"),
-                const SizedBox(width: 16), // Fixed spacing between items
-                discoverWidget(Icons.sms, 'SMS Filtering'),
-                const SizedBox(width: 16),
-                discoverWidget(Icons.wallet, 'Announcements'),
-              ],
-            ),
-
-            const SizedBox(height: 20), // Spacing between rows
-
-            // Row 2: Two Items + Invisible Spacer
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start, // Keep same alignment behavior
-              children: [
-                discoverWidget(Icons.group, "Community"),
-                const SizedBox(width: 16),
-                discoverWidget(Icons.report_gmailerrorred_rounded, "How to report calls"),
-                const SizedBox(width: 16),
+              ),),
+        
+              recentsWidget(Icons.remove_circle_outline_outlined, "Scammer"),
+        
+              SizedBox(height: 20,),
+              //  Text("Discover",
+              // style: TextStyle(
+              //   fontSize: 16,
+              //   fontWeight: FontWeight.bold,
+              // ),),
+              // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              // discoverWidget(Icons.person_add_alt, "Who viewed my profile"),
+              // discoverWidget(Icons.sms, 'SMS FIltering'),
+              // discoverWidget(Icons.wallet, 'Announcements'),
+            
+              // ],),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: [
                 
-                // This empty box takes up the exact space of a 3rd widget 
-                // to keep the first two pushed nicely to the left side
-                const SizedBox(width: 100), 
-              ],
-            ),
-             
-
-             Container(
-              height: 60,
-              
-              decoration: BoxDecoration(
-                color: Colors.white70,
-                borderRadius: BorderRadius.circular(16),
-
+              //   discoverWidget(Icons.group, "Community"),
+                
+              // discoverWidget(Icons.report_gmailerrorred_rounded, "How to report calls")
+              // ],)
+        
+        
+              Text(
+                "Discover",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              const SizedBox(height: 16),
+        
+             
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start, // Align to left side
                 children: [
-                  Icon(Icons.home,
-                  color: Colors.blue,
+                  
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: discoverWidget(Icons.person_add_alt, "Who viewed my profile"),
                   ),
-                  Icon(Icons.security),
-                  Icon(Icons.assessment_outlined),
-                  Icon(Icons.payment)
-
+                  const SizedBox(width: 16), // Fixed spacing between items
+                  discoverWidget(Icons.sms, 'SMS Filtering'),
+                  const SizedBox(width: 16),
+                  discoverWidget(Icons.wallet, 'Announcements'),
                 ],
               ),
-             )
-          ],
+        
+              const SizedBox(height: 20), 
+        
+             
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start, // Keep same alignment behavior
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: discoverWidget(Icons.group, "Community"),
+                  ),
+                  const SizedBox(width: 16),
+                  discoverWidget(Icons.report_gmailerrorred_rounded, "How to report calls"),
+                  const SizedBox(width: 16),
+                  
+                  
+                  const SizedBox(width: 100), 
+                ],
+              ),
+               
+        
+               Container(
+                height: 60,
+                
+                decoration: BoxDecoration(
+                  color: Colors.white70,
+                  borderRadius: BorderRadius.circular(16),
+        
+                ),
+        
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.home,
+                    color: Colors.blue,
+                    ),
+                    Icon(Icons.security),
+                    Icon(Icons.assessment_outlined),
+                    Icon(Icons.payment)
+        
+                  ],
+                ),
+               )
+            ],
+          ),
         ),
       ),
      
@@ -173,7 +198,8 @@ class _TruecallerState extends State<Truecaller> {
                   children: [
                     
                     Icon(Icons.search_sharp,size: 20,),
-                     Text("(833)          .10:36 AM"),
+                    Text(DateTime.now().toString())
+                    
                   ],
                 ),
 
