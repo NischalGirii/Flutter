@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Profile%20and%20View%20Page/truecaller.dart';
+import 'package:flutter_application_1/bottonNavigation/botton_navigation.dart';
+import 'package:flutter_application_1/bottonNavigation/curved_navigation.dart';
 import 'package:flutter_application_1/card.dart';
 import 'package:flutter_application_1/cardsir.dart';
 import 'package:flutter_application_1/Account/createAccount.dart';
@@ -35,7 +38,7 @@ class First extends StatelessWidget {
 
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  Validation(),
+      home:  CurvedNavigation(),
     );
   }
 }
