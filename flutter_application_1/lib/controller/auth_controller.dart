@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Account/homeAccount.dart';
+import 'package:flutter_application_1/getX/getx_profile.dart';
 import 'package:flutter_application_1/getX/loginGetx.dart';
 import 'package:get/get.dart';
 class AuthController extends GetxController{
   RxString username = ''.obs;
-
+  RxString registerUsername = ''.obs;
+  RxString registerEmail = ''.obs;
+  RxString registerCountry = ''.obs;
+  RxString registerPhone = ''.obs;
+  RxString registerPassword = ''.obs;
+  
   final String correctUsername = "admin";
   final String correctPassword = "1234";
+  
 
   void login({
     required String userName,
@@ -16,7 +23,7 @@ class AuthController extends GetxController{
     if(userName == correctUsername && password == correctPassword){
         // Navigator.push(context, MaterialPageRoute(builder:(context)=>Homeaccount() ));
         username.value = userName;
-        Get.to(Homeaccount());
+        Get.to(GetxProfile());
     }
     else{
       // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username or Password")));
@@ -30,5 +37,23 @@ class AuthController extends GetxController{
     Get.offAll(GetxLogin());
     username.value = '';
   }
+
+  void register({
+    required String username,
+    required String email,
+    required String country,
+    required String phone,
+    required String password,
+   })
+   {
+    registerUsername.value = username;
+    registerEmail.value = email;
+    registerCountry.value = country;
+    registerPhone.value = phone;
+    registerPassword.value = password;
+
+    Get.to(GetxLogin());
+   }
+  
 }
 
