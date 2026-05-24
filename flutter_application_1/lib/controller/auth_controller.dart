@@ -3,6 +3,7 @@ import 'package:flutter_application_1/Account/homeAccount.dart';
 import 'package:flutter_application_1/getX/getx_profile.dart';
 import 'package:flutter_application_1/getX/loginGetx.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 class AuthController extends GetxController{
   RxString username = ''.obs;
   RxString registerUsername = ''.obs;
@@ -10,6 +11,16 @@ class AuthController extends GetxController{
   RxString registerCountry = ''.obs;
   RxString registerPhone = ''.obs;
   RxString registerPassword = ''.obs;
+
+  final getStorage = GetStorage();
+
+@override
+  void onInit() {
+    super.onInit();
+
+    //read stored username
+    username.value = getStorage.read('username') ?? '';
+  }
   
   final String correctUsername = "admin";
   final String correctPassword = "1234";
@@ -23,6 +34,8 @@ class AuthController extends GetxController{
     if(userName == correctUsername && password == correctPassword){
         // Navigator.push(context, MaterialPageRoute(builder:(context)=>Homeaccount() ));
         username.value = userName;
+        getStorage.write('username', userName);
+        print('username from login: ${getStorage.read('username')}');
         Get.to(GetxProfile());
     }
     else{
