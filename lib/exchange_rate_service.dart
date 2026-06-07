@@ -76,7 +76,7 @@ class _ExchangeRateServiceState extends State<ExchangeRateService> {
           SizedBox(height: 40,),
           ElevatedButton(onPressed: () {
             convertCurrency();
-          }, child: Text("Convert Currency")),
+          }, child: Text("Currency Conversion")),
 
           Text('Converted Amount = ${convertedAmount.toString()}')
         ],
