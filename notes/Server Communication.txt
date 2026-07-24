@@ -1,0 +1,28 @@
+In database we use
+-CRUD
+
+In Server we use
+-get
+-post
+-delete
+-patch / update
+
+Status Code:
+200 -> Success
+201 -> Create
+204 -> Delete
+400 -> Bad Request
+401 -> Unauthorized
+404 -> Not Found
+500 -> Server Error
+
+
+action url => every thing behind .com
+
+ctrl+shift+p => json to dart clipboard => no,no,no enter then, create a folder named models and select the folder
+
+list, set, map
+
+constructor
+
+add card in image 
